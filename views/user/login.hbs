@@ -1,0 +1,14 @@
+<div class="container mt-5">
+    <form action="/user/login" method="POST">
+    {{#if loginError}}
+            <p class="error" >Invalid Error </p>
+    {{/if}}
+        <input type="text" placeholder="username" name="logname">
+        <input type="password" placeholder="password" name="logpass">
+        {{!-- <a class="btn btn-primary" href="/user/menu">Login</a> --}}
+        <button type="submit" class="btn btn-primary">Login</button>
+        <br><br>
+        Don't have an account?
+        <a class="text-decoration-none" href="/user/signup">Signup</a>
+    </form>
+</div>

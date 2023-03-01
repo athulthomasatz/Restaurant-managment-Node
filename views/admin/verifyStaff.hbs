@@ -1,0 +1,43 @@
+admin will verify the staff from here
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Action</th>
+  </tr>
+  {{#each staffList}}
+    <tr>
+      <td>{{this.StaffName}}</td>
+      <td>{{this.StaffEmail}}</td>
+      <td>
+      {{#if this.verified}}
+        Verified
+      {{else}}
+       <form action="/admin/verifyStaff/{{this._id}}" method="post">
+       <button type="submit" >Verify</button>
+       </form>
+      {{/if}}
+      </td>
+    </tr>
+  {{/each}}
+</table>
+{{!-- Script ajax --}}
+<script>
+  const buttons = document.querySelectorAll('.verify-button');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const staffId = button.dataset.staffId;
+      fetch(`/admin/verifyStaff/${staffId}`, {
+        method: 'POST',
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log('Staff verified successfully');
+        } else {
+          console.error('Failed to verify staff');
+        }
+      })
+      .catch(error => console.error(error));
+    });
+  });
+</script>

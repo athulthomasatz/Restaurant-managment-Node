@@ -1,0 +1,17 @@
+{{>user-header}}
+<div class="container mt-5 ">
+{{#each myCategory}}
+<a href="/user/menu/menu-items/" class="text-decoration-none link-dark">
+<div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{description}}
+                </p>
+            </div>
+        </div>
+        </a>
+
+
+{{/each}}
+</div>

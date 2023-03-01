@@ -1,0 +1,30 @@
+{
+  "name": "restaurant-management-nodejs",
+  "version": "1.0.0",
+  "description": "B.Sc Computer Science Final Year Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mishal18/restaurant-management-nodejs.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mishal18/restaurant-management-nodejs/issues"
+  },
+  "homepage": "https://github.com/Mishal18/restaurant-management-nodejs#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "mongodb": "^5.1.0",
+    "mongoose": "^6.8.4",
+    "nodemon": "^2.0.20"
+  }
+}

@@ -1,0 +1,12 @@
+<div class="container mt-5">
+    <form action="/user/signup" method="POST">
+        <input type="text" name="signname" placeholder="Username">
+        <input type="password" name="signpass" placeholder="Password">
+        <input type="email" name="signmail" placeholder="E-mail">
+        <input type="number" name="signnumber" placeholder="Phone Number">
+        {{!-- <a class="btn btn-primary" href="/user/login">Signin</a><br><br> --}} 
+        <button type="submit" class="btn btn-secondary">Sign in</button>
+        Already have an account?
+        <a class="text-decoration-none" href="/user/login">Login</a>
+    </form>
+</div>

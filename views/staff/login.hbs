@@ -1,0 +1,16 @@
+
+
+<div class="container mt-5">
+    <form action="/staff/login" method="POST">
+    {{#if loginError}}
+            <p class="error" >Invalid Error </p>
+    {{/if}}
+        <input type="text" placeholder="username" name="staffname">
+        <input type="password" placeholder="password" name="staffpass">
+        {{!-- <a class="btn btn-primary" href="/staff/menu">Login</a> --}}
+        <button type="submit" class="btn btn-primary">Login</button>
+        <br><br>
+        Don't have an account?
+        <a class="text-decoration-none" href="/staff/signup">Signup</a>
+    </form>
+</div>

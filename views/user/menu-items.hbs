@@ -1,0 +1,17 @@
+{{>user-header}}
+<div class="container mt-5 ">
+    <h2>All Items</h2>
+   {{#each myItems}}
+   <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <p>no hai</p>
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{description}}
+                     
+                </p>
+                <a class="btn btn-primary" href="/">Add To Cart</a>
+            </div>
+        </div>
+   {{/each}}
+</div>

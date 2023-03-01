@@ -1,0 +1,13 @@
+signupp staff
+<div class="container mt-5">
+    <form action="/staff/signup" method="POST"> 
+        <input type="text" name="ssignname" placeholder="Username">
+        <input type="password" name="ssignpass" placeholder="Password">
+        <input type="email" name="ssignmail" placeholder="E-mail">
+        <input type="number" name="ssignnumber" placeholder="Phone Number">
+        {{!-- <a class="btn btn-primary" href="/user/login">Signin</a><br><br> --}} 
+        <button type="submit" class="btn btn-secondary">Sign in</button>
+        Already have an account?
+        <a class="text-decoration-none" href="/staff/login">Login</a>
+    </form>
+</div>

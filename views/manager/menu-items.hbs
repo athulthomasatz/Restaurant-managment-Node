@@ -1,0 +1,20 @@
+{{>user-header}} 
+<div class="container mt-5">
+ <h2>All Items</h2>
+<div class="d-flex justify-content-around gap-3 row">
+   
+   {{#each myItems}}
+   <div class="card col-sm-6" style="width: 18rem;">
+            <img src="#" class="card-img-top" alt="Image ">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{description}}</p>
+                <a href="#" class="btn btn-primary">delete</a>
+            </div>
+        </div>
+   {{/each}}
+   </div>
+    <div class="mt-5 ms-3">
+       <a class="btn btn-primary" href="/manager/menu/add-items">Add Items</a>
+    </div>
+</div>
