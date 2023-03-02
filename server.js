@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const ConnectDb = require('./config/connection')
 const cookie = require('cookie-parser')
 const session = require('express-session')
+const flash = require('connect-flash')
 dotenv.config()
 const { engine } = require('express-handlebars')
 const guestRouter = require('./routes/guest.route')
@@ -18,6 +19,7 @@ const app = express()
 // Database connect
 ConnectDb()
 //session and cookie
+app.use(flash())
 app.use(express.json())
 app.use(cookie());
 app.use(session({

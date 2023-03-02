@@ -1,9 +1,12 @@
 
 
 <div class="container mt-5">
-    <form action="/staff/login" method="POST">
-    {{#if loginError}}
-            <p class="error" >Invalid Error </p>
+    <form action="/staff/login" method="post">
+    {{#if error}}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{error}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
     {{/if}}
         <input type="text" placeholder="username" name="staffname">
         <input type="password" placeholder="password" name="staffpass">
