@@ -1,7 +1,16 @@
 <div class="container mt-5">
-    <form action="">
-        <input type="text" placeholder="username">
-        <input type="password" placeholder="password">
-        <a class="btn btn-primary" href="">Login</a>
+    <form action="/cashier/login" method="post">
+    {{#if error}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{error}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
+        <input type="text" placeholder="username" name="cname">
+        <input type="password" placeholder="password" name="cpassword">
+        <button type="submit" class="btn btn-primary">Login</button>
+        <br><br>
+        Don't have an account?
+        <a class="text-decoration-none" href="/cashier/signup">Signup</a>
     </form>
 </div>

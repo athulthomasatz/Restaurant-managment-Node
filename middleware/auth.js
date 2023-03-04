@@ -6,7 +6,8 @@ module.exports = {
             } else {
                 res.redirect('/user/login')  
             } 
-        },verifyAdminAuth :(req,res,next)=>{
+        },
+        verifyAdminAuth :(req,res,next)=>{
             if(req.session.adminAuth){
                 next()
             }else{
@@ -19,7 +20,14 @@ module.exports = {
             }else{
                 res.redirect('/staff/login')
             }
+        },
+        verifyManagerAuth : (req,res,next)=>{
+            if(req.session.managerAuth){ 
+                next()
+            }else{
+                res.redirect('/manager/login')
+            }
         }
         
     
-}
+} 

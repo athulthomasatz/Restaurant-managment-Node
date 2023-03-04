@@ -16,10 +16,10 @@ exports.getUserLoginPage = (req, res) => {
 }
 
 exports.postUserLoginPage = async (req, res) => {
-    const { logname, logpass } = req.body;
+    const { logname, logpass } = req.body; 
     try {
         //  database field : loginform name
-        const users = await usersData.findOne({ UserName: logname });
+        const users = await usersData.findOne({ UserName: logname }); 
         if (!users) {
             return res.status(401).send('Invalid user');
         }
@@ -27,7 +27,7 @@ exports.postUserLoginPage = async (req, res) => {
         const isMatch = await bcrypt.compare(logpass, users.Password);
         
         if (!isMatch) {
-            return res.status(401).send('Invalid email or password'); 
+            return res.status(401).send('Invalid  or password'); 
         } else {
             console.log("user and password succesfully found")
         }
@@ -39,7 +39,7 @@ exports.postUserLoginPage = async (req, res) => {
         };
         req.session.userAuth = true
         console.log(req.session.useId)
-        res.redirect('/user/menu');
+        res.redirect('/user/menu' );
     } catch (error) {
         console.error(error);
         res.status(500).send('Server error');
@@ -50,7 +50,13 @@ exports.getUserSignupPage = (req, res) => {
     res.render('user/signup')
 }
 
-exports.postUserSignupPage = (req, res) => {
+exports.postUserSignupPage = async(req, res) => {
+    try{
+        const userExist = await usersData.findOne({ Email : req.body.signmail}).lean()
+    if(userExist){
+        console.log("user already exist");
+        return res.redirect('/user/signup')
+    }
 
     bcrypt.hash(req.body.signpass, saltRounds, (err, hash) => {
         if (err) {
@@ -67,11 +73,19 @@ exports.postUserSignupPage = (req, res) => {
         newUser.save().then(() => {
             console.log('User added!');
             res.redirect('/user/login');
-        }).catch((err) => {
-            console.log(err);
-            res.status(500).send('Error adding user');
-        });
-    });
+        })
+        // .catch((err) => {
+        //     console.log(err);
+        //     res.status(500).send('Error adding user'); 
+        // });
+    })
+
+    }catch(error){
+     console.log(error);
+     res.status(500).send('error adding user ')
+
+    }
+    
 
 }
 

@@ -1,5 +1,5 @@
 const mongoose =require('mongoose')
-const StaffSchema = new mongoose.Schema({
+const StaffSchema = new mongoose.Schema({ 
     StaffName :{
         type : String,
         required : true
@@ -10,10 +10,10 @@ const StaffSchema = new mongoose.Schema({
     },
     StaffEmail :{
         type : String,
-        required : false
+        required : true
     },
     StaffNumber :{
-        type : Number,
+        type : String,
         required : false 
     },
     verified :{
@@ -23,4 +23,4 @@ const StaffSchema = new mongoose.Schema({
 
 })
 const StaffData = mongoose.model('StaffData', StaffSchema)
-module.exports = StaffData ;
+module.exports = StaffData ; 

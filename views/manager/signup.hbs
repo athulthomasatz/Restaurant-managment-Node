@@ -1,0 +1,20 @@
+signupp Manager
+<div class="container mt-5">
+    <form action="/manager/signup" method="POST"> 
+    {{#if error}}
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{error}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {{/if}}
+        <input type="text" name="msignname" placeholder="Username">
+        <input type="password" name="msignpass" placeholder="Password">
+        <input type="email" name="msignmail" placeholder="E-mail">
+        <input type="number" name="msignnumber" placeholder="Phone Number">
+        {{!-- <a class="btn btn-primary" href="/user/login">Signin</a><br><br> --}} 
+        <button type="submit" class="btn btn-secondary">Sign in</button>
+        Already have an account?
+        <a class="text-decoration-none" href="/manager/login">Login</a>
+    </form>
+</div>
