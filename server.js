@@ -21,6 +21,7 @@ const app = express()
 // Database connect
 ConnectDb()
 //session and cookie
+app.use(flash())
 app.use(express.json())
 app.use(flash())
 app.use(morgan(':method :url :status'))
