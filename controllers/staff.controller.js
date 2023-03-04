@@ -2,7 +2,7 @@ const staffDB = require('../models/staffData')
 const bcrypt = require('bcryptjs')
 const saltrounds = 10
 
-exports.getStaffPage = (req, res) => {
+exports.getStaffPage = (req, res) => { 
     res.send("Staff Page")
 }
 
