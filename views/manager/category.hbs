@@ -1,0 +1,66 @@
+
+<div>
+  <h2>Categories:</h2>
+  <ul>
+    {{#each categories}}
+      <li>
+        <a href="/manager/categories/{{this.name}}">{{this.name}}</a>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
+
+
+
+{{!-- <div>
+  <h2>Categories:</h2>
+  <ul id="category-list">
+    {{#each itemsByCategory}}
+      <li>
+        <a href="#" onclick="displayItems('{{this.category._id}}')">{{this.category.name}}</a>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+<div>
+  <h2>Items:</h2>
+  <ul id="item-list">
+    {{#each itemsByCategory}}
+      <ul id="{{this.category._id}}" style="display:none;">
+        {{#each this.items}}
+          <li>{{this.name}} - {{this.description}}</li>
+        {{/each}}
+      </ul>
+    {{/each}}
+  </ul>
+</div> --}}
+
+
+{{!-- <script>
+function displayItems(categoryId) {
+  var itemLists = document.querySelectorAll('#item-list > ul');
+  for (var i = 0; i < itemLists.length; i++) {
+    if (itemLists[i].id === categoryId) {
+      itemLists[i].style.display = 'block';
+    } else {
+      itemLists[i].style.display = 'none';
+    }
+  }
+}
+</script> --}}
+
+
+
+
+
+
+{{!-- {{#each itemsByCategory}}
+  <h2>{{this.category.name}}</h2>
+  <ul>
+    {{#each this.items}}
+      <li>{{this.name}} - {{this.description}}</li>
+    {{/each}}
+  </ul>
+{{/each}} never delete this code  --}}
+{{!-- newly added code below --}}

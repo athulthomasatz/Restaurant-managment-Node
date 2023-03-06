@@ -1,0 +1,10 @@
+
+<!-- views/items.hbs -->
+<div>
+  <h2>{{categoryName}} Items:</h2>
+  <ul>
+    {{#each items}}
+      <li>{{this.name}} - {{this.description}}</li>
+    {{/each}}
+  </ul>
+</div>

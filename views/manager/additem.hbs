@@ -1,0 +1,68 @@
+<form action="/manager/additem" method="POST">
+  <label for="itemname">Item Name</label>
+  <input type="text" id="itemname" name="itemname" required>
+
+  <h1>Category Names:</h1>
+  <select name="category" id="category">
+    {{#each categories}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+
+  <button type="submit">Add Item</button>
+</form>
+
+
+{{!-- <form action="/manager/additem" method="POST">
+  <label for="itemname">Item Name</label>
+  <input type="text" id="itemname" name="itemname" required>
+
+  <h1>Category Names:</h1>
+<ul>
+  {{#each categories}}
+    <li>{{this.name}}</li>
+  {{/each}}
+</ul>
+
+
+  <button type="submit">Add Item</button>
+</form> --}}
+
+
+
+
+
+
+
+
+
+{{!-- <div class="container mt-5">
+    <form action="/manager/additems" method="post">
+        <div class="mb-3">
+            <input type="text" placeholder="Item Name" name="itemname" required>
+        </div>
+        <div class="mb-3">
+            <input type="text" placeholder="Description" name="itemdescription" required><br>
+        </div>
+        <div class="mb-3">
+            <input type="text" placeholder="Price" name="itemprice" required><br>
+        </div> --}}
+        {{!-- <div class="mb-3">
+            <select name="itemcategory" required>
+                <option value="">Select a category</option> --}}
+                {{!-- {{#each categories}} --}}
+                {{!-- <option value="{{_id}}">{{name}}</option> --}}
+                {{!-- {{/each}} --}}
+            {{!-- </select> --}}
+        {{!-- </div> --}}
+
+        {{!-- forr confirmation 64036db52a761ed3e2063fd3 --}}
+        {{!-- {{#each categories}} --}}
+        {{!-- <p>Category Name: {{this.name}}</p> --}}
+        {{!-- <p>Category ID: {{this._id}}</p> --}}
+        {{!-- {{/each}} --}}
+        {{!-- <div class="mb-3"> --}}
+            {{!-- <button class="btn btn-primary" type="submit">Add Item</button> --}}
+        {{!-- </div> --}}
+    {{!-- </form> --}}
+{{!-- </div> --}}
