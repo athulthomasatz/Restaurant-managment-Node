@@ -61,7 +61,7 @@ exports.postManagerLoginPage = async (req, res) => {
     try {
         const managername = await managerData.findOne({ ManagerName: mname });
         if (!managername) {
-            req.flash('error', "Invalid User or user not exist")
+            req.flash('error', "Invalid User or User not exist")
             return res.redirect('/manager/login')
         }
         const isMatch = await bcrypt.compare(mpassword, managername.Password);

@@ -1,4 +1,4 @@
-<h1>Guest page</h1>
+{{!-- <h1>Guest page</h1>
 <div class="container mt-5"> 
     <h1>Welcome  Smart Restaurant App</h1>
     <a class="btn btn-primary" href="/user/login">User Login</a>
@@ -11,4 +11,835 @@
 </div>
 <div class="container mt-3">
     <a class="btn btn-primary" href="/guest/menu">Guest Menu</a>
-</div>
+</div> --}}
+
+<head>
+
+<!--FONT AWESOME-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--GOOGLE FONTS-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!--PLUGIN-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<!--NAV-->
+<nav>
+    <section class="flex_content">
+        <strong class="logo"><em class="stroke">Smart </em>Restaurant <em>.</em> </strong>
+    </section>
+    <section class="flex_content nav_content" id="nav_content">
+        {{!-- <a href="#" class="active">Home</a>
+        <a href="#">Blog</a> 
+        <a href="#">Contact us</a>
+        <a href="#">About us</a> --}}
+    </section>
+    <section class="flex_content">
+        <a href="javascript:void(0)" class="ham"><i class="fa fa-bars"></i></a>
+    </section> 
+</nav>
+
+
+<!--MENU-->
+<menu id="menu">
+    <a href="javascript:void(0)" class="close"><i class="fa fa-times"></i></a>
+    {{!-- <strong class="logo"><em class="stroke">Smart </em>Restaurant <em>.</em> </strong>
+    <br><br> --}}
+    {{!-- <h2>MAKE MORE, DO LESS</h2>
+    <p>Ready to get started? Apply today and see if you're a good fit for our team!</p>
+    <br><br><br>
+    <h3>Contact Us</h3> --}}
+    <ul>
+        <li><a href="/user/login">
+        {{!-- <i class="fa fa-envelope-o"></i> --}}
+        User login</a></li>
+        <li><a href="/staff/login">Staff Login</a></li>
+        <li><a href="/manager/login">Kitchen-Manager login</a></li>
+        <li><a href="/cashier/login">Cashier Login</a></li>
+        <li><a href="/admin/login">Admin Login</a></li>
+    </ul>
+</menu>
+
+
+<!--HEADER-->
+<header class="flex">
+    <section class="flex_content">
+        <article class="padding_1x">
+            <h1 class="title big">Welcome To Smart Restaurant App<br></h1>
+            <p>A restaurant management system is a type of software that has been specifically designed for use within the restaurant industry. Also known as restaurant management software, such solutions are intended to assist leaders and others in carrying out the most critical managerial tasks.</p>
+            <a href="/guest/menu" class="btn btn_1">Get Started With Menu</a>
+            
+          {{!-- <a href="#services" class="cs-down">Services</a> --}}
+           {{!-- <a href="#services" class="cs-down">Contact us</a>
+            <a href="#services" class="cs-down"></a> --}}
+        <article>
+    </section>
+</header>
+
+      
+
+<!--MAIN-->
+{{!-- <main id="services">
+    <div class="divisions division_1 padding_2x">
+        <div class="flex">
+            <section class="flex_content padding_2x">
+                <h1 class="title medium">We Shape the <em>Perfect Solutions</em>.</h1>
+                <p>We are committed to providing our customers with exceptional service while offering our employees the best training.</p>
+                <a href="#" class="btn btn_1">Apply now</a>
+            </section>
+            <section class="flex_content padding_1x">
+                <article class="padding_2x">
+                    <aside class="fixed_flex">
+                        <h1 class="stroke big">01</h1>
+                        <img src="https://i.postimg.cc/zB9VrtVC/01.png" alt="">
+                    </aside>
+                    <h3 class="title small">We Grow Your OnlyFans Subscribers</h3>
+                    <p>No more posting on social media all day, no more chatting with creepy guys for hours. Just make a little bit of content each day, then go live your best life.</p>
+                </article>
+            </section>
+        </div>
+        <div class="flex">
+            <section class="flex_content padding_1x flex cards">
+                <article class="padding_2x">
+                    <aside class="fixed_flex">
+                        <h1 class="stroke big">02</h1>
+                        <img src="https://i.postimg.cc/zB9VrtVC/01.png" alt="">
+                    </aside>
+                    <h3 class="title small">We Optimize Your Earnings on OnlyFans</h3>
+                    <p>No more posting on social media all day, no more chatting with creepy guys for hours. Just make a little bit of content each day, then go live your best life.</p>
+                </article>
+                <article class="padding_2x">
+                    <aside class="fixed_flex">
+                        <h1 class="stroke big">03</h1>
+                        <img src="https://i.postimg.cc/zB9VrtVC/01.png" alt="">
+                    </aside>
+                    <h3 class="title small">You Have More Free Time To Live Your Life</h3>
+                    <p>No more posting on social media all day, no more chatting with creepy guys for hours. Just make a little bit of content each day, then go live your best life.</p>
+                </article>
+                <article class="padding_2x">
+                    <aside class="fixed_flex">
+                        <h1 class="stroke big">04</h1>
+                        <img src="https://i.postimg.cc/zB9VrtVC/01.png" alt="">
+                    </aside>
+                    <h3 class="title small">You Have More Free Time To Live Your Life</h3>
+                    <p>No more posting on social media all day, no more chatting with creepy guys for hours. Just make a little bit of content each day, then go live your best life.</p>
+                </article>
+            </section>
+        </div>
+    </div>
+</main> --}}
+
+      
+      
+
+<!--ADDITIONAL-->
+<div class="overlay"></div>
+{{!-- <div class="cursor"></div> --}}
+
+<style>/***************************
+    CUSTOM SCROLL BAR
+****************************/
+*, html{
+    scroll-behavior: smooth;
+}
+
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root{
+    --white:#fff;
+    --black:#101010;
+    --dark:#191919;
+    --gray:rgba(1,1,1,0.6);
+    --lite:rgba(255,255,255,0.6);
+    --primary:linear-gradient(145deg,#f81f01,#ee076e);
+    --primary_dark:#f81f01;
+    --secondary:#154b87;
+    --default_font:'Open Sans', sans-serif;
+    --title_font:'Poppins', sans-serif;
+}
+
+::-webkit-scrollbar {
+    height: 12px;
+    width: 8px;
+    background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: gray;
+    -webkit-box-shadow: 0px 1px 2px var(--dark);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--dark);
+}
+
+
+/***************************
+            DEFAULT
+****************************/
+body{
+    margin:0;
+    overflow-x:hidden !important;
+    font-family: var(--default_font);
+    color:var(--white);
+    background-color:var(--black);
+}
+
+a{
+    text-decoration:none !important;
+    min-width: fit-content;
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+}
+
+a, button{
+    transition:0.5s;
+}
+
+em{
+    font-style:normal;
+    color:var(--primary_dark);
+}
+
+figure{
+    padding:0;
+    margin:0;
+}
+
+figure img{
+    min-width:100%;
+    min-height:100%;
+    width:100%;
+    height:100%;
+}
+
+a, p, .btn{
+    font-size:18px;
+}
+
+p{
+    line-height:1.9em;
+    color:var(--lite);
+}
+
+a, button, input, textarea, select{
+    outline:none !important;
+}
+
+fieldset{
+    border:0;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin:0;
+}
+
+.title, .sub_title{
+    font-family:var(--title_font);
+}
+
+.flex, .fixed_flex{
+    display:flex;
+}
+
+.flex_content{
+    width:100%;
+    position:relative;
+}
+
+.padding_1x{
+    padding:1rem;
+}
+
+.padding_2x{
+    padding:2rem;
+}
+
+.padding_3x{
+    padding:3rem;
+}
+
+.padding_4x{
+    padding:4rem;
+}
+
+.big{
+    font-size:5em;
+}
+
+.medium{
+    font-size:2em;
+}
+
+.small{
+    font-size:1.3em;
+}
+
+.btn{
+    padding:1rem;
+    border-radius:5px;
+    text-align:center;
+    font-weight:500;
+    text-transform:uppercase;
+    position:relative;
+    font-family:var(--title_font);
+    font-weight:400;
+}
+
+.btn_1{
+    display:block;
+    background-color:0;
+    border:0;
+    text-transform:uppercase;
+    color:var(--white);
+}
+
+.btn_1:before{
+    content:"";
+    border-radius:50%;
+    background-color:rgba(255,255,255,0.2);
+    position:absolute;
+    left:0;
+    top:50%;
+    width:50px;
+    height:50px;
+    transition:0.5s;
+    transform:translate(0%, -50%);
+}
+
+.btn_1:after{
+    content:"\f178";
+    font-family:"FontAwesome";
+    margin-left:5px;
+}
+
+.btn_1:hover:before{
+    border-radius:40px;
+    width:100%;
+}
+
+.divisions{
+    position:relative;
+}
+
+@media (max-width:920px){
+    .flex{
+        flex-wrap:wrap;
+    }
+    
+    .padding_1x, .padding_2x, .padding_3x, .padding_4x{
+        padding:1rem;
+    }
+    
+    .big{
+        font-size:1.8em;
+    }
+    
+    .medium{
+        font-size:1.6em;
+    }
+    
+    .small{
+        font-size:1.1em;
+    }
+    
+    .btn{
+        padding:0.5rem 1rem;
+    }
+    
+    a, p, .btn{
+        font-size:12px;
+    }
+}
+
+
+
+
+
+/*NAV*/
+nav{
+    display:flex;
+    position:fixed;
+    top:0;
+    width:100%;
+    align-items:center;
+    justify-content:center;
+    padding:1rem 3rem;
+    z-index:9;
+    white-space:nowrap;
+    transition:0.5s
+}   
+
+nav a{
+    padding:0.8rem 0;
+    color:var(--lite);
+    margin:0 1.5rem;
+    text-transform:uppercase;
+    font-family:var(--title_font);
+    font-weight:400;
+    position:relative;
+    white-space:nowrap;
+}
+
+.logo{
+    font-size:1.6em;
+}
+
+nav .active{
+    color:var(--primary_dark) !important;
+    border-bottom:2px solid var(--primary_dark);
+}
+
+nav .flex_content:nth-child(2) a:after{
+    transition:0.5s;
+    content:"";
+    position:absolute;
+    left:0;
+    width:0;
+    top:100%;
+    height:2px;
+    background:var(--primary);
+}
+
+nav a:hover{
+    color:var(--white);
+}
+
+nav .flex_content:nth-child(2) a:hover:after{
+    width:100%;
+}
+
+nav .flex_content:last-child a{
+    float:right;
+}
+
+nav .ham{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    border:2px solid var(--lite);
+    width:50px;
+    height:50px;
+    color:var(--lite);
+}
+
+nav .ham:hover{
+    border:2px solid var(--white);
+}
+
+menu{
+    margin:0;
+}
+
+menu{
+    width:400px;
+    background-color:var(--dark);
+    z-index:999;
+    position:fixed;
+    right:-400px;
+    overflow:hidden;
+    height:100%;
+    transition:0.5s;
+    padding:6rem 2rem;
+}
+
+.overlay{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    transition:0.5s;
+    opacity:0;
+    z-index:-1;
+    background-color:var(--gray);
+}
+
+.close{
+    float:right;
+    border:2px solid var(--lite);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;
+    height:32px;
+    padding:0.5rem;
+    color:var(--lite);
+    position:absolute;
+    top:5%;
+    right:5%;
+}
+
+.close:hover{
+    color:var(--white);
+    border:2px solid var(--white);
+}
+
+menu li{
+    padding:0.8rem 0;
+    list-style:none;
+}
+
+menu li a{
+    color:var(--lite);
+}   
+
+menu li i{
+    color:var(--primary_dark);
+}
+
+menu li a:hover{
+    color:var(--white);
+}
+
+@media (max-width:920px){
+    nav{
+        padding:1rem;
+    }
+    
+    nav .ham{
+        width:30px;
+        height:30px;
+    }
+    
+    nav .nav_content{
+        width:200px;
+        background-color:var(--dark);
+        z-index:999 !important;
+        position:fixed;
+        top:0;
+        right:-200px;
+        overflow:hidden;
+        height:100%;
+        transition:0.5s;
+    }
+    
+    nav .nav_content a{
+        display:block;
+        padding:0.4rem 0rem;
+        margin:1rem;
+        font-size:20px;
+    }
+}
+
+
+
+
+
+
+/*ADDITIONAL*/
+/*Custom cursor*/
+.cursor {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--primary_dark);
+    pointer-events: none;
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    z-index: 9999;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+}
+
+.cursor::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary_dark);
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    position: absolute;
+    border-radius: 50%;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    z-index: 9999;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+}
+
+
+/*HEADER*/
+header{
+background:url("https://i.postimg.cc/KjTmvF10/header.jpg");
+    background-size:cover;
+    align-items:center;
+    position:relative;
+}
+
+header section{  
+    padding:10rem 2rem;
+}
+
+header article .title{
+    background: var(--primary);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    line-height:1.3;
+}
+
+header article p{
+    color:var(--lite);
+    width:60%;
+}
+
+@media (max-width:920px){
+    header section{  
+        padding:6rem 0rem;
+    }
+    
+    header article p{
+        width:100%;
+    }
+}
+
+
+
+
+/*DIVISION_1*/
+.division_1{
+    overflow:hidden;
+}
+
+.division_1:before, .division_1:after{  
+    content:"";
+    background-color:#000;
+    position:absolute;
+    width:400px;
+    height:400px;
+    border-radius:40%;
+}
+
+.division_1:before{
+    left:-27%;
+    top:-10%;
+    transform:rotate(120deg);
+}
+
+.division_1:after{
+    right:-25%;
+    bottom:-10%;
+    transform:rotate(-50deg);
+}
+
+.division_1 .flex:nth-child(1){
+    align-items:center;
+}
+
+.division_1 .cards{
+    align-items:center;
+    justify-content:space-between;
+    z-index:1;
+}
+
+.division_1 article{
+    background-color:var(--dark);
+    border-radius:10px;
+}
+
+.division_1 .cards article{
+    margin:1%;
+}
+
+.division_1 .fixed_flex{
+    align-items:center;
+    justify-content:space-between;
+}
+
+.division_1 article img{
+    background:var(--primary);
+    padding:0.3rem;
+    border-radius:10px;
+}
+
+.division_1 article .title{
+    margin:1rem 0;
+}
+
+.division_1 article .stroke{
+    opacity:0.3;
+}
+
+@media (max-width:920px){
+    .division_1 {
+        padding:0;
+    }
+}
+
+
+
+/*Transparent text background*/
+.stroke{
+    color:transparent;
+    -webkit-text-stroke: 1.5px var(--primary_dark);
+}
+
+
+/*Custom cursor coloring*/
+.cursor--expand {
+    animation: cursor-animate-3 550ms forwards;
+    border: 10px solid rgb(var(--primary_dark));
+}
+
+.cursor--expand::after {
+    border: 15px solid rgba(var(--primary_dark), .3);
+}
+
+
+/*Scroller*/
+.cs-down{
+    position: absolute;
+    height: 35px;
+    width: 20px;
+    border-radius: 10px;
+    padding: 5px;
+    border: 2px solid var(--white);
+    bottom: 10%;
+    left: 50%;
+    margin-left: -10px;
+}
+
+.cs-down:before{
+    content: '';
+    height: 5px;
+    width: 5px;
+    margin: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    -webkit-animation: UpAndDown 3s infinite;
+    animation: UpAndDown 3s infinite;
+}
+
+@-webkit-keyframes UpAndDown {
+  0%,
+  100% {
+    top: 30%;
+  }
+  50% {
+    top: 70%;
+    opacity: 0.5;
+    -webkit-transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+@keyframes UpAndDown {
+  0%,
+  100% {
+    top: 30%;
+  }
+  50% {
+    top: 70%;
+    opacity: 0.5;
+    -webkit-transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}</style>
+
+<script>
+    //Global variables
+var element;
+
+
+//Custom cursor
+{{!-- (() => { 
+
+   const cursor = document.querySelector('.cursor');
+
+   document.addEventListener('mousemove', e => {
+      cursor.setAttribute('style', `top:  ${e.pageY - 25}px; left: ${e.pageX - 25}px;`);
+   });
+
+   document.addEventListener('click', () => { 
+      console.log("%c Click...!!!", "font-size: 20px; color:mediumspringgreen;");
+
+      cursor.classList.add('cursor--expand');
+      console.log(cursor.classList);
+   
+      setTimeout(() => {
+         cursor.classList.remove('cursor--expand');
+      }, 500);
+   });
+})(); --}}
+
+
+
+
+
+
+
+//Detect onclick event
+if (window.matchMedia("(max-width: 920px)").matches === false) {
+    $(".ham").on("click", function(){
+        $("menu").css("right", "0px");
+        $(".overlay").css("opacity","1");
+        $(".overlay").css("z-index","99");
+    });
+
+    $(".close").on("click", function(){
+        $("menu").css("right", "-400px");
+        $(".overlay").css("opacity","0");
+        $(".overlay").css("z-index","-1");
+    });
+
+    $(".overlay").on("click", function(){
+        $("menu").css("right", "-400px");
+        $(".overlay").css("opacity","0");
+        $(".overlay").css("z-index","-1");
+    });
+} else {
+    $(".ham").on("click", function(){
+        $(".nav_content").css("right", "0px");
+        $(".overlay").css("opacity","1");
+        $(".overlay").css("z-index","1");
+    });
+    
+    $(".close").on("click", function(){
+        $(".nav_content").css("right", "-200px");
+        $(".overlay").css("opacity","0");
+        $(".overlay").css("z-index","-1");
+    });
+    
+    $(".overlay").on("click", function(){
+        $(".nav_content").css("right", "-200px");
+        $(".overlay").css("opacity","0");
+        $(".overlay").css("z-index","-1");
+    });
+}
+
+
+//Scroller Nav
+window.onscroll = function() {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        $("nav").css("background-color","var(--black)") ;
+    } else {
+        $("nav").css("background-color","transparent") ;
+    }
+}
+</script>

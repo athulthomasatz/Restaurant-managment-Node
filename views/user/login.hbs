@@ -1,14 +1,134 @@
-<div class="container mt-5">
-    <form action="/user/login" method="POST">
-    {{#if loginError}}
-            <p class="error" >Invalid Error </p>
-    {{/if}}
-        <input type="text" placeholder="username" name="logname">
-        <input type="password" placeholder="password" name="logpass">
-        {{!-- <a class="btn btn-primary" href="/user/menu">Login</a> --}}
-        <button type="submit" class="btn btn-primary">Login</button>
-        <br><br>
-        Don't have an account?
-        <a class="text-decoration-none" href="/user/signup">Signup</a>
-    </form>
+<div class="container">
+    {{>home-button}}
+    <div class="login-box">
+        <p>LOG IN</p>
+        <form action="/user/login" method="POST" autocomplete="off">
+            {{#if loginError}}
+            <p class="error">Invalid Error </p>
+            {{/if}}
+            <div class="user-box">
+                <input required="" name="logname" type="text">
+                <label>Username</label>
+            </div>
+            <div class="user-box">
+                <input required="" name="logpass" type="password">
+                <label>Password</label>
+            </div>
+            <button type="submit">
+                Log in
+            </button>
+        </form>
+        <p>Don't have an account? <a href="/user/signup" class="a2">Sign up!</a></p>
+    </div>
 </div>
+
+
+<style>
+    body {
+        background-color: #272727;
+        margin: 0;
+        padding: 0;
+    }
+
+    .login-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 350px;
+        overflow: hidden;
+        padding: 40px;
+        margin: auto;
+        transform: translate(-50%, -55%);
+        background: rgba(0, 0, 0, .9);
+        box-sizing: border-box;
+        box-shadow: 5px rgba(0, 0, 0, .6);
+        border-radius: 10px;
+    }
+
+    .login-box p:first-child {
+        margin: 0 0 30px;
+        padding: 0;
+        color: #fff;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .login-box .user-box {
+        position: relative;
+    }
+
+    .login-box .user-box input {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #fff;
+        outline: none;
+        background: transparent;
+    }
+
+    .login-box .user-box label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    .login-box .user-box input:focus~label,
+    .login-box .user-box input:valid~label {
+        top: -20px;
+        left: 0;
+        color: #fff;
+        font-size: 12px;
+    }
+
+    .login-box form button {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        font-weight: bold;
+        background-color: #272727;
+        color: #fff;
+        font-size: 16px;
+        border: #fff solid 3px;
+        border-radius: 5px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        letter-spacing: 3px
+    }
+
+    .login-box button:hover {
+        background: #fff;
+        color: #272727;
+        border-radius: 5px;
+    }
+
+
+    .login-box p:last-child {
+        color: #aaa;
+        font-size: 14px;
+    }
+
+    .login-box a.a2 {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .login-box a.a2:hover {
+        background: transparent;
+        color: #aaa;
+        border-radius: 5px;
+    }
+</style>
