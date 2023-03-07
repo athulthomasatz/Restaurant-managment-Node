@@ -1,8 +1,12 @@
 const Category = require('../models/Category')
 const Item = require('../models/Item')
-const managerData = require('../models/managerData') 
+const managerData = require('../models/managerData')  
+const { v4 } = require('uuid')
 const bcrypt = require('bcryptjs')
 const saltrounds = 10 
+const path = require('path');
+
+const bodyParser = require('body-parser');
 
 
 exports.getManagerPage = (req, res) => {
@@ -96,7 +100,24 @@ exports.getAddCategoryPage = (req, res) => {
   }
 
   exports.postAddCategoryPage = (req, res) => {
+    let sampleFile;
+    let uploadPath;
+    if(!req.files || Object.keys(req.files).length == 0) {
+        return res.status(400).json({"message":"No file were uploaded"})
+    }
+    sampleFile = req.files.sampleFile
+    const imageExtension = sampleFile.name.split('.')[1]
+    const uploadUrl = v4() + `.${imageExtension}`;
+    uploadPath = path.join(__dirname,'..','public','uploads', uploadUrl )
+    console.log(uploadPath)
+    sampleFile.mv(uploadPath, function(err){
+        if(err) {
+            return res.status(500).send(err)
+        }
+    })
+
     const newCategory = new Category({
+      imageUrl : uploadUrl,
       name: req.body.categoryname,
       description : req.body.categorydescription
     })
@@ -123,9 +144,28 @@ exports.getAddCategoryPage = (req, res) => {
   }
 
   exports.postAddItemPage = (req, res) => {
+
+    let sampleFile;
+    let uploadPath;
+    if(!req.files || Object.keys(req.files).length == 0) {
+        return res.status(400).json({"message":"No file were uploaded"})
+    }
+    sampleFile = req.files.sampleFile
+    const imageExtension = sampleFile.name.split('.')[1]
+    const uploadUrl = v4() + `.${imageExtension}`;
+    uploadPath = path.join(__dirname,'..','public','uploads', uploadUrl )
+    console.log(uploadPath)
+    sampleFile.mv(uploadPath, function(err){
+        if(err) {
+            return res.status(500).send(err)
+        }
+    })
+
     const newItem = new Item({
+      imageUrl : uploadUrl,
       name: req.body.itemname,
       price: req.body.itemprice,
+      description : req.body.itemdescription,
       category: req.body.category
     })
   
@@ -141,7 +181,7 @@ exports.getAddCategoryPage = (req, res) => {
   }
 
 
-  exports.getManagerMenuPage = async (req, res) => {
+  exports.getManagerMenuPage = async (req, res) => { 
     try {
       // Retrieve all the categories
       const categories = await Category.find({}).lean();
@@ -155,7 +195,7 @@ exports.getAddCategoryPage = (req, res) => {
   
   };
 
-  exports.getManagerCategoryPage = async (req, res) => {
+  exports.getManagerCategoryPage = async (req, res) => { 
     try {
       const { categoryName } = req.params;
       console.log(categoryName + " categoryname");
@@ -165,10 +205,69 @@ exports.getAddCategoryPage = (req, res) => {
       console.log(category);
   
       // Retrieve all the items that belong to that category
-      const items = await Item.find({ category: category._id }).lean();
-      console.log(items)
+      const itemss = await Item.find({ category: category._id }).lean();
+      console.log(itemss)
       // Render the category page with the items
-      res.render('manager/category-items', { category, items });
+      res.render('manager/category-items', { category, itemss });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  };
+
+
+  exports.getUpdateCat = async (req, res) => { 
+
+    try{
+      const categories = await Category.find({}).lean();
+      res.render('manager/updatecategory',{ categories })
+
+    }catch(err){
+      console.log(err);
+      res.status(500).send("Server error in update")
+    }
+    
+  };
+  
+  exports.getUpdateCategory = async (req, res) => {
+    try {
+      const { categoryId } = req.params;
+      console.log(categoryId + " id!!!!");
+      
+   
+      // Retrieve the category with the given name
+      const category = await Category.findById({ _id: categoryId }).lean();
+      console.log(category);
+
+      
+      // Render the category page with the items
+      res.render('manager/updateCategoryForm', { category });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  };
+
+
+  exports.postupdateCategory = async (req, res) => {
+    try {
+      const { categoryId } = req.params;
+      const { categoryname, categorydescription } = req.body;
+      console.log(categoryId);
+      console.log(categoryname)
+  
+      // Find the category and update its name and description
+      const category = await Category.findOneAndUpdate(
+        { _id: categoryId },
+        { name: categoryname, description: categorydescription },
+        { new: true }
+      );
+      // const items = await Item.find({ category: category._id }).lean();
+      // console.log(items)
+      
+  
+      // Redirect to the category page with the updated data
+      return res.redirect(`/manager/category`);
     } catch (err) {
       console.error(err);
       res.status(500).send('Server Error');
@@ -176,122 +275,3 @@ exports.getAddCategoryPage = (req, res) => {
   };
   
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// exports.getManagerMenuPage = async (req, res) => {
-//     try {
-//         const categories = await categoryModel.find().lean();
-//         const items = await itemModel.find().lean();
-//         const categorizedItems = {};
-    
-//         // Group items by category
-//         categories.forEach(category => {
-//           categorizedItems[category._id] = {
-//             name: category.name,
-//             items: items.filter(item => item.category.toString() === category._id.toString())
-//           };
-//         });
-    
-//         res.render('manager/menu', { categorizedItems });
-//       } catch (err) {
-//         console.error(err);
-//         res.redirect('/manager/dashboard');
-//       }
-//     // const myCategory = await category.find({}).lean()
-//     // res.render('manager/menu', { myCategory })
-// }
-// exports.getManagerAddCategoryPage = (req, res) => {
-//     res.render('manager/add-category')
-// }
-// exports.postManagerAddCategoryPage = (req, res) => {
-//     const myCategory = new category({
-//         name: req.body.categoryname,
-//         description: req.body.categorydescription
-//     })
-//     myCategory.save().then(() => {
-//         console.log("Category Added!!")
-//     }).catch((err) => {
-//         console.log(err)
-//     })
-//     res.redirect('/manager/menu')
-// }
-
-
-// exports.getManagerAddItemPage = async (req, res) => {
-//     const categories = await category.find({}).lean();
-//     res.render('manager/add-items', { categories });
-// }
-
-// exports.postManagerAddItemPage = async (req, res) => {
-//     try {
-//         const myItem = new items({
-//             name: req.body.itemname,
-//             description: req.body.itemdescription,
-//             price: req.body.itemprice,
-//             category: req.body.itemcategory
-//         })
-//         await myItem.save()
-//         console.log("item added!");
-//         res.redirect('/manager/menu/menu-items')
-
-//     } catch (err) {
-//         console.log(err);
-//         res.redirect('/manager/menu')
-//     }
-
-// }
-
-// exports.getManagerMenuItemPage = async (req, res) => { 
-//     try {
-//         const categories = await category.find().lean();
-//         const allitems = await items.find().lean();
-//         const categorizedItems = {};
-
-//         // Group items by category
-//         categories.forEach(category => {
-//             categorizedItems[category._id] = {
-//                 name: category.name,
-//                 items: allitems.filter(item => item.category.toString() === category._id.toString())
-//             };
-//         });
-
-//         res.render('manager/menu-items', { categorizedItems });
-//     } catch (error) {
-//         console.log(error);
-//         res.redirect('/manager/menu');
-//     }
-// }
-
-// exports.getManagerLogout = (req, res) => {
-//     req.session.managerAuth = false
-//     console.log(req.session.managerAuth + " manager turned false");
-//     return res.redirect('/')
-
-// }

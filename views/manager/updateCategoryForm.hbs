@@ -1,0 +1,19 @@
+here iam using in the form page
+<div class="container mt-5">
+    
+    <form action="/manager/update-category/{{category._id}}" method="POST">
+
+        <div class="mb-3">
+           <input type="text" value="{{category.name}}" name="categoryname" id="categoryname" required>
+        </div>
+        <div class="mb-3">
+            <input type="text" value="{{category.description}}" name="categorydescription" id="categorydescription" required><br>
+        </div>
+        {{!-- <input type="hidden" name="_method" value="PUT"> --}}
+
+        <div class="mb-3">
+            <button class="btn btn-success" type="submit">update Category</button>
+        </div>
+    </form>
+</div>
+

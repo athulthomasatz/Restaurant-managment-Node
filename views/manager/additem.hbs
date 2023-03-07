@@ -1,11 +1,18 @@
-<form action="/manager/additem" method="POST">
+<form action="/manager/additem" method="POST" enctype="multipart/form-data">
+
+Upload Image
+    <input type="file" name="sampleFile" accept="image/*" ><br>
   <label for="itemname">Item Name</label>
   <input type="text" id="itemname" name="itemname" required>
+  <br>
+   <label for="itemprice">Item Price</label>
+  <input type="text" id="itemprice" name="itemprice" required>
 
-  <h1>Category Names:</h1>
+
+  <h5>Category Names:</h5>
   <select name="category" id="category">
     {{#each categories}}
-      <option value="{{this._id}}">{{this.name}}</option>
+      <option value="{{this._id}}">{{this.name}}</option> 
     {{/each}}
   </select>
 

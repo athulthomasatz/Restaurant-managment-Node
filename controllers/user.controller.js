@@ -1,5 +1,5 @@
-const category = require('../models/Category')
-const items = require('../models/Item')
+const Category = require('../models/Category')
+const Item = require('../models/Item')
 const usersData = require('../models/UserData')
 const bcrypt = require('bcryptjs');
 const saltRounds = 10;
@@ -30,7 +30,7 @@ exports.postUserLoginPage = async (req, res) => {
             return res.status(401).send('Invalid  or password'); 
         } else {
             console.log("user and password succesfully found")
-        }
+        } 
 
         // Create a session for the user
         req.session.useId = {
@@ -108,14 +108,38 @@ exports.userLogout = (req,res)=>{
 
 
 exports.getUserMenuPage = async (req, res) => {
-    const myCategory = await category.find({}).lean()
+
+    try {
+        // Retrieve all the categories
+        const categories = await Category.find({}).lean();
     
-    res.render('user/menu', { myCategory })
+        // Render the menu page with the categories
+        res.render('user/menu', { categories });
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+      }
+    
 }
 
 exports.getUserMenuItemPage = async (req, res) => {
-    const myItems = await items.find({}).lean()
-    res.render('user/menu-items', { myItems })
+    try {
+        const { categoryName } = req.params;
+        console.log(categoryName + " categoryname");
+    
+        // Retrieve the category with the given name
+        const category = await Category.findOne({ name: categoryName }).lean();
+        console.log(category);
+    
+        // Retrieve all the items that belong to that category
+        const items = await Item.find({ category: category._id }).lean();
+        console.log(items)
+        // Render the category page with the items
+        res.render('user/menu-items', { category, items });
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+      }
 }
 
 

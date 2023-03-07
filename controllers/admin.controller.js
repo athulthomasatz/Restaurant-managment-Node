@@ -8,7 +8,7 @@ exports.getAdminPage = (req,res) => {
 exports.getAdminLoginPage = (req,res) => { 
     res.render('admin/login')
 }
-
+ 
 exports.postAdminloginPage = (req,res)=>{
     const { adminname ,adminpass } = req.body
     const adminName = 'superadmin';
@@ -99,7 +99,7 @@ exports.getStaffVerifyPage = async(req,res)=>{
     
   }
 
-  exports.postManagerVerifyById = async(req,res)=>{
+  exports.postManagerVerifyById = async(req,res)=>{ 
     try{
     const managerId = req.params.id;
     console.log(managerId);

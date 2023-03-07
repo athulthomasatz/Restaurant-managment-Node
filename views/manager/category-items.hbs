@@ -1,10 +1,22 @@
 
-<!-- views/items.hbs -->
-<div>
-  <h2>{{categoryName}} Items:</h2>
-  <ul>
-    {{#each items}}
-      <li>{{this.name}} - {{this.description}}</li>
-    {{/each}}
-  </ul>
+
+
+
+{{>manager-header}}
+<div class="container mt-5 ">
+    <h2>All Items</h2>
+   {{categoryName}}
+   {{#each itemss}}
+   <div class="card" style="width: 18rem;">
+            <img src="/uploads/{{this.imageUrl}}" width="200" height="100" alt="Food Item">
+            <div class="card-body">
+                <p>Title</p>
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">{{this.description}}
+                     
+                </p>
+                {{!-- <a class="btn btn-primary" href="/">Add To Cart</a> --}}
+            </div>
+        </div>
+   {{/each}}
 </div>

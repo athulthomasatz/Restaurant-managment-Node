@@ -1,6 +1,9 @@
 const express = require('express')
 const path = require('path')
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const dotenv = require('dotenv')
+const fileUpload = require('express-fileupload')
 const ConnectDb = require('./config/connection')
 const cookie = require('cookie-parser')
 const session = require('express-session')
@@ -24,6 +27,7 @@ ConnectDb()
 app.use(flash())
 app.use(express.json())
 app.use(flash())
+app.use(fileUpload())
 app.use(morgan(':method :url :status'))
 app.use(cookie());
 app.use(session({
@@ -31,7 +35,15 @@ app.use(session({
     resave : false,
     saveUninitialized : true
 }))
+//body-parser setting and parse incoming data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended:false}))
+app.use(express.static(path.join(__dirname, 'public')))
 
+// use method-override middleware
+app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //engine set up
 app.use(express.urlencoded({extended:true}))
