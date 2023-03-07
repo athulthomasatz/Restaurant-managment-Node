@@ -18,7 +18,7 @@ exports.getGuestMenu = async(req,res)=>{
         res.render('guest/menu', { categories });
       } catch (err) {
         console.error(err);
-        res.status(500).send('Server Error');
+        res.status(500).send('Server Error'); 
       }
 }
 
