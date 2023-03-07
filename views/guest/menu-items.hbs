@@ -1,14 +1,16 @@
 menu items
 {{>guest-header}}
-<div class="container mt-5 ">
-    <h2>All Items</h2>
-   {{#each menuItems}}
-   <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="Image photo">
+<div class="container mt-5 "> 
+    <h2>All Items in {{category.name}}</h2>
+    {{categoryName}}
+    
+   {{#each items}}
+   <div class="card" style="width: 18rem;"> 
+            <img src="..." class="card-img-top" alt="Image photo"> 
             <div class="card-body">
                 <p>Title</p>
-                <h5 class="card-title">{{name}}</h5>
-                <p class="card-text">{{description}}
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">{{this.description}}
                      
                 </p>
                 <a class="btn btn-primary" href="/">Add To Cart</a>

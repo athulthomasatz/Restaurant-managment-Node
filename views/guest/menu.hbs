@@ -1,18 +1,16 @@
 <h3>Guest Menu showcase</h3>
 {{>guest-header}}
 <div class="container mt-5 ">
-{{#each menuCategory}}
-<a href="/guest/menu/menu-items/" class="text-decoration-none link-dark">
+{{#each categories}}
+<a href="/guest/menu/{{this.name}}" class="text-decoration-none link-dark">  
 <div class="card">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="/uploads/{{this.imageUrl}}" width="200" height="100" alt="Food Categories">
             <div class="card-body">
-                <h5 class="card-title">{{name}}</h5>
-                <p class="card-text">{{description}}
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">{{this.description}} 
                 </p>
             </div>
         </div>
         </a>
-
-
 {{/each}}
 </div>
